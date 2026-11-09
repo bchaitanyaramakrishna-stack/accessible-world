@@ -1,5 +1,5 @@
 
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = "https://accessible-world.onrender.com";
 
 // Stores all locations received from the backend
 let allLocations = [];

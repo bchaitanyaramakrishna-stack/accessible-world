@@ -12,7 +12,7 @@ async function loadReports() {
 
     try {
         const response = await fetch(
-            "http://127.0.0.1:8000/admin/reports",
+            "https://accessible-world.onrender.com/admin/reports",
             {
                 method: "GET",
                 headers: {
@@ -98,7 +98,7 @@ async function updateReportStatus(reportId, newStatus) {
 
     try {
         const response = await fetch(
-            `http://127.0.0.1:8000/admin/reports/${reportId}/status`,
+            `https://accessible-world.onrender.com/admin/reports/${reportId}/status`,
             {
                 method: "PATCH",
                 headers: {
