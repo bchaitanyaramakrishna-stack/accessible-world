@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Explore detailed accessibility information about public places.">
+
+    <title>Location Details | Accessible World</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    ```html
+<!-- Navigation -->
+<header class="navbar">
+
+    <a href="index.html" class="logo">
+        <span class="logo-icon">A</span>
+        <span>Accessible<span class="logo-highlight">World</span></span>
+    </a>
+
+    <div class="nav-links">
+        <a href="login.html">Login</a>
+        <a href="my-reports.html">My Reports</a>
+        <a href="index.html#explore" class="nav-button">
+            ← Back to Locations
+        </a>
+    </div>
+
+</header>
+```
+
+
+    <!-- Location Details -->
+    <main class="details-main">
+
+        <section class="details-card">
+
+            <span class="eyebrow">EXPLORE ACCESSIBILITY</span>
+
+            <h1 id="locationName">Loading location...</h1>
+
+            <p id="locationAddress"></p>
+
+            <p id="locationCity"></p>
+
+            <div class="details-divider"></div>
+
+            <h2>About This Place</h2>
+
+            <p id="locationDescription">
+                Loading description...
+            </p>
+
+            <div class="details-divider"></div>
+
+            <h2>Accessibility Facilities</h2>
+
+            <div id="accessibilityDetails">
+                Loading accessibility information...
+            </div>
+            <div class="details-divider"></div>
+
+<h2>Report an Accessibility Issue</h2>
+
+<p>Help us improve accessibility by reporting an issue at this location.</p>
+
+<form id="reportForm">
+
+    <label for="reportType">Report Type</label>
+    <select id="reportType" required>
+        <option value="">Select an issue</option>
+        <option value="Broken wheelchair ramp">Broken wheelchair ramp</option>
+        <option value="No wheelchair access">No wheelchair access</option>
+        <option value="No accessible washroom">No accessible washroom</option>
+        <option value="Elevator not working">Elevator not working</option>
+        <option value="Other">Other</option>
+    </select>
+
+    <label for="reportDescription">Describe the Issue</label>
+    <textarea
+        id="reportDescription"
+        rows="4"
+        maxlength="2000"
+        placeholder="Describe the accessibility problem..."
+        required
+    ></textarea>
+
+    <button type="submit" class="nav-button">
+        Submit Report
+    </button>
+
+    <p id="reportMessage" role="status" aria-live="polite"></p>
+
+</form>
+
+            <p id="detailsMessage"
+               class="register-message"
+               role="status"
+               aria-live="polite">
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="register-bottom">
+        © 2026 Accessible World. All rights reserved.
+    </footer>
+
+
+    <script src="js/location-details.js"></script>
+
+</body>
+
+</html>

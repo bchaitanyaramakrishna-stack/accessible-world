@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Login to your Accessible World account.">
+
+    <title>Login | Accessible World</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="register-page">
+
+    ```html
+<header class="navbar">
+    <a href="index.html" class="logo">
+        <span class="logo-icon">A</span>
+        <span>Accessible<span class="logo-highlight">World</span></span>
+    </a>
+
+    <div class="nav-links">
+        <a href="register.html">Register</a>
+        <a href="index.html" class="nav-button">
+            Back to Home ←
+        </a>
+    </div>
+</header>
+```
+
+    <main class="register-main">
+
+        <section class="register-card">
+
+            <div class="register-icon">♿</div>
+
+            <span class="eyebrow">WELCOME BACK</span>
+
+            <h1>Login to your account</h1>
+
+            <p class="register-description">
+                Welcome back! Login to continue exploring
+                accessible places.
+            </p>
+
+            <form id="loginForm">
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email address"
+                        autocomplete="email"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+                    >
+                </div>
+
+                <p
+                    id="loginMessage"
+                    class="register-message"
+                    role="status"
+                    aria-live="polite">
+                </p>
+
+                <button
+                    type="submit"
+                    id="loginButton"
+                    class="register-submit">
+                    Login →
+                </button>
+
+            </form>
+
+            <p class="register-footer">
+                Don't have an account?
+                <a href="register.html">Register</a>
+            </p>
+
+        </section>
+
+    </main>
+
+    <footer class="register-bottom">
+        © 2026 Accessible World. All rights reserved.
+    </footer>
+
+    <script src="js/login.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Accessible World</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    ```html
+<nav class="navbar">
+    <div class="logo">Accessible World</div>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="my-reports.html">My Reports</a>
+     <a href="login.html" onclick="logout()">Logout</a>
+    </div>
+</nav>
+```
+    <main class="details-main">
+        <section class="details-card">
+            <h1>Admin Dashboard</h1>
+            <p>Manage accessibility reports submitted by users.</p>
+
+            <div id="admin-message"></div>
+
+            <div id="reports-container">
+                <p>Reports will appear here.</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/admin.js"></script>
+    <script src="js/auth.js"></script>
+
+</body>
+</html>
+```
