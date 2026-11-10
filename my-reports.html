@@ -1,35 +1,66 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Reports - Accessible World</title>
+    <meta name="description" content="Track your accessibility reports on Accessible World.">
+    <meta name="theme-color" content="#06111f">
+
+    <title>My Reports | Accessible World</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/futuristic.css">
 </head>
+
 <body>
 
-   ```html
-<nav class="navbar">
-    <h2>Accessible World</h2>
+    <!-- Navigation -->
+    <header class="navbar">
 
-    <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="my-reports.html">My Reports</a>
-        <a href="admin.html">Admin</a>
-       <a href="login.html" onclick="logout()">Logout</a>
-    </div>
-</nav>
-```
+        <a href="index.html" class="logo" aria-label="Accessible World home">
+            <span class="logo-icon">A</span>
+            <span>Accessible<span class="logo-highlight">World</span></span>
+        </a>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="my-reports.html">My Reports</a>
+            <a href="admin.html">Admin</a>
+            <a href="login.html" class="nav-button" onclick="logout()">Logout</a>
+        </div>
+
+    </header>
+
+    <!-- My Reports Dashboard -->
     <main class="user-dashboard">
-        <h1>My Accessibility Reports</h1>
-        <p>Track the status of your submitted reports.</p>
 
-        <p id="reports-message">Loading your reports...</p>
+        <section class="reports-header">
+            <span class="eyebrow">YOUR ACCESSIBILITY ACTIVITY</span>
+
+            <h1>My Accessibility Reports</h1>
+
+            <p>
+                Track your submitted accessibility reports
+                and help make public spaces more inclusive.
+            </p>
+        </section>
+
+        <p id="reports-message" role="status" aria-live="polite">
+            Loading your reports...
+        </p>
 
         <div id="my-reports-container"></div>
+
     </main>
 
+    <!-- Scripts -->
     <script src="js/my-reports.js"></script>
     <script src="js/auth.js"></script>
 

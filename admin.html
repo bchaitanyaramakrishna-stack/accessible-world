@@ -1,41 +1,78 @@
-```html
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - Accessible World</title>
+    <meta name="description" content="Manage accessibility reports on Accessible World.">
+    <meta name="theme-color" content="#06111f">
+
+    <title>Admin Dashboard | Accessible World</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/futuristic.css">
 </head>
+
 <body>
 
-    ```html
-<nav class="navbar">
-    <div class="logo">Accessible World</div>
+    <!-- Navigation -->
+    <header class="navbar">
 
-    <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="my-reports.html">My Reports</a>
-     <a href="login.html" onclick="logout()">Logout</a>
-    </div>
-</nav>
-```
-    <main class="details-main">
-        <section class="details-card">
+        <a href="index.html" class="logo" aria-label="Accessible World home">
+            <span class="logo-icon">A</span>
+            <span>Accessible<span class="logo-highlight">World</span></span>
+        </a>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="my-reports.html">My Reports</a>
+            <a href="login.html" class="nav-button" onclick="logout()">Logout</a>
+        </div>
+
+    </header>
+
+    <!-- Admin Dashboard -->
+    <main class="details-main admin-main">
+
+        <section class="details-card admin-card">
+
+            <span class="eyebrow">ACCESSIBLE WORLD MANAGEMENT</span>
+
             <h1>Admin Dashboard</h1>
-            <p>Manage accessibility reports submitted by users.</p>
 
-            <div id="admin-message"></div>
+            <p class="admin-description">
+                Manage accessibility reports submitted by users
+                and help create more inclusive public spaces.
+            </p>
+
+            <div class="details-divider"></div>
+
+            <h2>Accessibility Report Management</h2>
+
+            <div id="admin-message" role="status" aria-live="polite"></div>
 
             <div id="reports-container">
                 <p>Reports will appear here.</p>
             </div>
+
         </section>
+
     </main>
 
+    <!-- Footer -->
+    <footer class="register-bottom">
+        © 2026 Accessible World. All rights reserved.
+    </footer>
+
+    <!-- Scripts -->
     <script src="js/admin.js"></script>
     <script src="js/auth.js"></script>
 
 </body>
 </html>
-```

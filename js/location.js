@@ -34,12 +34,25 @@ function initializeMap() {
     );
 
     // Load free OpenStreetMap tiles
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(locationsMap);
+   
+// Load futuristic dark map tiles
+
+// Load free OpenStreetMap tiles
+
+
+// Free OpenStreetMap tiles
+L.tileLayer(
+    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    {
+        attribution:
+            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        maxZoom: 19
+    }
+).addTo(locationsMap);
+
 }
 
-// Display database locations as map markers
+
 function displayLocationMarkers(locations) {
 
     if (!locationsMap) {
@@ -67,45 +80,66 @@ function displayLocationMarkers(locations) {
         const latitude = Number(location.latitude);
         const longitude = Number(location.longitude);
 
-        const marker = L.marker([latitude, longitude])
-            .addTo(locationsMap);
+        // Futuristic holographic marker
+        const futuristicIcon = L.divIcon({
+            className: "aw-map-marker",
+            html: `
+                <span class="aw-marker-pulse"></span>
+                <span class="aw-marker-core">
+                    <span class="aw-marker-dot"></span>
+                </span>
+            `,
+            iconSize: [44, 54],
+            iconAnchor: [22, 50],
+            popupAnchor: [0, -48]
+        });
 
+        const marker = L.marker(
+            [latitude, longitude],
+            { icon: futuristicIcon }
+        ).addTo(locationsMap);
+
+        // Create location popup
         const popup = document.createElement("div");
 
         const heading = document.createElement("strong");
         heading.textContent = location.name;
 
         const address = document.createElement("p");
-        address.textContent = location.address || "Address not available";
+        address.textContent =
+            location.address || "Address not available";
 
         const detailsLink = document.createElement("a");
 
-detailsLink.href =
-    `location-details.html?id=${encodeURIComponent(location.location_id)}`;
+        detailsLink.href =
+            `location-details.html?id=${encodeURIComponent(location.location_id)}`;
 
-detailsLink.textContent = "View Location Details";
+        detailsLink.textContent = "View Location Details";
 
-const routeButton = document.createElement("button");
+        const routeButton = document.createElement("button");
 
-routeButton.textContent = "Get Directions";
+        routeButton.textContent = "Get Directions";
+        routeButton.type = "button";
+        routeButton.style.display = "block";
+        routeButton.style.marginTop = "10px";
 
-routeButton.type = "button";
+        routeButton.addEventListener("click", function () {
+            showRouteToLocation(location);
+        });
 
-routeButton.style.display = "block";
-routeButton.style.marginTop = "10px";
-
-routeButton.addEventListener("click", function () {
-    showRouteToLocation(location);
-});
-
-popup.append(heading, address, detailsLink, routeButton);
+        popup.append(
+            heading,
+            address,
+            detailsLink,
+            routeButton
+        );
 
         marker.bindPopup(popup);
 
         locationMarkers.push(marker);
     });
 
-    // Automatically adjust the map to show all markers
+    // Automatically adjust map to show all markers
     if (validLocations.length > 0) {
 
         const markerGroup = L.featureGroup(locationMarkers);
@@ -116,6 +150,7 @@ popup.append(heading, address, detailsLink, routeButton);
         });
     }
 }
+
 
 // Find and display the visitor's current location
 function findCurrentLocation() {
