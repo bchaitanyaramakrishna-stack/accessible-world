@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View and manage your Accessible World profile.">
+
+    <title>My Profile | Accessible World</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+
+<body>
+
+<header class="navbar">
+    <a href="index.html" class="logo">
+        <span class="logo-icon">A</span>
+        <span>Accessible<span class="logo-highlight">World</span></span>
+    </a>
+
+    <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#explore">Explore</a>
+        <a href="index.html#features">Accessibility</a>
+        <a href="my-reports.html">My Reports</a>
+    </nav>
+
+    <div class="nav-actions">
+        <a href="profile.html" class="nav-profile">👤 Profile</a>
+        <button type="button" class="nav-login" onclick="logout()">Logout</button>
+    </div>
+</header>
+
+<main class="profile-page">
+
+    <section class="profile-heading">
+        <span class="eyebrow">YOUR ACCOUNT</span>
+        <h1>Your Profile</h1>
+        <p>Manage your account and keep track of your contributions.</p>
+    </section>
+
+    <section class="profile-card">
+
+        <div class="profile-main">
+            <div class="profile-avatar" id="profileAvatar">U</div>
+
+            <div class="profile-identity">
+                <h2 id="profileName">Loading profile...</h2>
+                <p id="profileEmail">Please wait</p>
+                <span class="profile-role" id="profileRole">USER</span>
+            </div>
+        </div>
+
+        <div class="profile-divider"></div>
+
+        <div class="profile-details">
+            <div class="profile-detail">
+                <span>FULL NAME</span>
+                <strong id="detailName">—</strong>
+            </div>
+
+            <div class="profile-detail">
+                <span>EMAIL ADDRESS</span>
+                <strong id="detailEmail">—</strong>
+            </div>
+
+            <div class="profile-detail">
+                <span>ACCOUNT TYPE</span>
+                <strong id="detailRole">—</strong>
+            </div>
+
+            <div class="profile-detail">
+                <span>MEMBER SINCE</span>
+                <strong id="detailCreated">—</strong>
+            </div>
+        </div>
+
+        <div class="profile-edit">
+            <div>
+                <h3>Edit your profile</h3>
+                <p>Keep your personal information up to date.</p>
+            </div>
+
+            <button type="button" id="editProfileBtn" class="profile-edit-button">
+                Edit Profile →
+            </button>
+        </div>
+
+        <form id="profileEditForm" class="profile-edit-form" hidden>
+            <label for="editFullName">Full name</label>
+            <input
+                type="text"
+                id="editFullName"
+                minlength="2"
+                maxlength="100"
+                required
+            >
+
+            <div class="profile-form-actions">
+                <button type="submit" class="profile-save-button">Save Changes</button>
+                <button type="button" id="cancelEditBtn" class="profile-cancel-button">Cancel</button>
+            </div>
+        </form>
+
+        <p id="profileMessage" class="profile-message" aria-live="polite"></p>
+
+    </section>
+
+    <section class="report-overview">
+        <div class="profile-section-heading">
+            <span class="eyebrow">YOUR CONTRIBUTIONS</span>
+            <h2>Your Report Activity</h2>
+            <p>See the status of the reports you have submitted.</p>
+        </div>
+
+        <div class="report-stat-grid">
+
+            <article class="report-stat-card">
+                <span class="stat-icon total">▤</span>
+                <span class="stat-label">TOTAL REPORTS</span>
+                <strong id="totalReports">0</strong>
+                <p>Reports submitted</p>
+            </article>
+
+            <article class="report-stat-card">
+                <span class="stat-icon pending">◷</span>
+                <span class="stat-label">PENDING</span>
+                <strong id="pendingReports">0</strong>
+                <p>Waiting for review</p>
+            </article>
+
+            <article class="report-stat-card">
+                <span class="stat-icon approved">✓</span>
+                <span class="stat-label">APPROVED</span>
+                <strong id="approvedReports">0</strong>
+                <p>Successfully approved</p>
+            </article>
+
+            <article class="report-stat-card">
+                <span class="stat-icon rejected">×</span>
+                <span class="stat-label">REJECTED</span>
+                <strong id="rejectedReports">0</strong>
+                <p>Not approved</p>
+            </article>
+
+        </div>
+    </section>
+
+    <section class="profile-bottom">
+        <div>
+            <h3>Thank you for making access visible.</h3>
+            <p>Your contributions help make public spaces more inclusive.</p>
+        </div>
+
+        <a href="my-reports.html" class="profile-reports-link">
+            View My Reports →
+        </a>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <a href="index.html" class="logo footer-logo">
+        <span class="logo-icon">A</span>
+        <span>Accessible<span class="logo-highlight">World</span></span>
+    </a>
+
+    <p>Making accessibility easier to discover.</p>
+    <span class="copyright">© 2026 Accessible World. All rights reserved.</span>
+</footer>
+
+<script src="js/auth.js"></script>
+<script src="js/profile.js"></script>
+
+</body>
+</html>

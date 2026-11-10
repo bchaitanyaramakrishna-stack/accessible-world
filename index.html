@@ -1,254 +1,147 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Discover public places and their accessibility features with Accessible World.">
+    <meta name="theme-color" content="#092f35">
     <title>Accessible World | Explore Without Barriers</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 </head>
-
 <body>
 
-<!-- Navigation -->
 <header class="navbar">
-    <a href="#" class="logo">
+    <a href="#home" class="logo" aria-label="Accessible World home">
         <span class="logo-icon">A</span>
         <span>Accessible<span class="logo-highlight">World</span></span>
     </a>
 
-    <nav class="nav-links">
+    <nav class="nav-links" aria-label="Main navigation">
         <a href="#home">Home</a>
+        <a href="#explore">Explore</a>
         <a href="#features">Accessibility</a>
         <a href="#about">About</a>
-        <a href="register.html">Register</a>
-        <a href="login.html">Login</a>
         <a href="my-reports.html">My Reports</a>
         <a href="admin.html">Admin</a>
     </nav>
 
-    <a href="#explore" class="nav-button">Explore Places ↗</a>
+    <div class="nav-actions">
+    <a href="login.html" class="nav-login">Login</a>
+
+    <a href="profile.html" class="nav-profile">
+        <span aria-hidden="true">👤</span> Profile
+    </a>
+
+    <a href="register.html" class="nav-button">
+        Get Started <span aria-hidden="true">↗</span>
+    </a>
+</div>
 </header>
 
-
-    <main>
-
-        <!-- Hero Section -->
-        <section class="hero" id="home">
-
-            <div class="hero-content">
-                <span class="eyebrow">A MORE INCLUSIVE WORLD</span>
-
-                <h1>
-                    Explore the world.
-                    <span>Without barriers.</span>
-                </h1>
-
-                <p class="hero-description">
-                    Discover public places, understand their accessibility
-                    facilities, and make more confident decisions before
-                    you visit.
-                </p>
-
-                <div class="hero-actions">
-                    <a href="#explore" class="primary-button">
-                        Explore Places <span>→</span>
-                    </a>
-
-                    <a href="#about" class="secondary-button">
-                        Learn More
-                    </a>
-                </div>
-
-                <div class="hero-note">
-                    <span class="note-dot"></span>
-                    Building a world where everyone belongs.
-                </div>
+<main>
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <span class="eyebrow"><span class="eyebrow-dot"></span> A MORE INCLUSIVE WORLD</span>
+            <h1>Explore the world.<br><span>Without barriers.</span></h1>
+            <p class="hero-description">Discover public places, understand their accessibility facilities, and make more confident decisions before you visit.</p>
+            <div class="hero-actions">
+                <a href="#explore" class="primary-button">Explore Places <span aria-hidden="true">→</span></a>
+                <a href="#about" class="secondary-button">Discover our mission <span aria-hidden="true">↗</span></a>
             </div>
+            <div class="hero-note"><span class="note-dot"></span> Building a world where everyone belongs.</div>
+            <div class="hero-trust"><span aria-hidden="true">✦</span> Discover · Contribute · Make access visible</div>
+        </div>
 
-            <div class="hero-visual">
-                <div class="visual-circle"></div>
-
-                <div class="access-card">
-                    <div class="access-icon">♿</div>
-                    <span class="card-label">ACCESSIBILITY MATTERS</span>
-                    <h3>Every journey should be inclusive.</h3>
-                    <p>Better information. Better access. Better experiences.</p>
-
-                    <div class="card-bottom">
-                        <span>ACCESS FOR EVERYONE</span>
-                        <span>✦</span>
-                    </div>
-                </div>
-
-                <div class="floating-tag tag-top">
-                    <span>✓</span> Inclusive spaces
-                </div>
-
-                <div class="floating-tag tag-bottom">
-                    <span>◎</span> Explore with confidence
-                </div>
+        <div class="hero-visual" aria-label="Illustration celebrating inclusive access">
+            <div class="visual-orbit orbit-one"></div>
+            <div class="visual-orbit orbit-two"></div>
+            <div class="visual-circle"></div>
+            <div class="access-card">
+                <div class="access-card-top"><span class="access-icon">♿</span><span class="live-pill"><span></span> ACCESS FOR ALL</span></div>
+                <span class="card-label">A MORE ACCESSIBLE TOMORROW</span>
+                <h3>Every journey should feel possible.</h3>
+                <p>Better information can open doors to better experiences.</p>
+                <div class="card-bottom"><span>INCLUSION STARTS HERE</span><span aria-hidden="true">✦</span></div>
             </div>
+            <div class="floating-tag tag-top"><span>✓</span> Inclusive spaces</div>
+            <div class="floating-tag tag-bottom"><span>◎</span> Explore with confidence</div>
+            <div class="hero-spark spark-one">✳</div><div class="hero-spark spark-two">✦</div>
+        </div>
+        <a class="scroll-cue" href="#explore" aria-label="Scroll to explore"><span></span> SCROLL TO EXPLORE</a>
+    </section>
 
-        </section>
+    <section class="explore-section" id="explore">
+        <div class="section-heading">
+            <span class="eyebrow">DISCOVER YOUR WORLD</span>
+            <h2>Find places that <span>welcome everyone.</span></h2>
+            <p>Explore accessibility information for everyday destinations and public spaces.</p>
+        </div>
 
-        <!-- Explore Section -->
-        <section class="explore-section" id="explore">
-            
-            <div class="section-heading">
-                <span class="eyebrow">DISCOVER YOUR WORLD</span>
-                <h2>Find places that welcome everyone.</h2>
-                <p>
-                    Explore accessibility information for everyday
-                    destinations and public spaces.
-                </p>
-            
+        <div id="locations-container" aria-live="polite"></div>
+
+        <!-- Search is intentionally placed directly below the location cards and above the map. -->
+        <div class="search-panel">
+            <div class="search-symbol" aria-hidden="true">⌕</div>
+            <div class="search-text">
+                <strong>Find your next destination</strong>
+                <span>Search hospitals, colleges, restaurants and more.</span>
             </div>
-            <div id="locations-container"></div>
-            <!-- Interactive Map Section -->
-<div class="map-heading">
-    <h3>Explore Locations on the Map</h3>
-    <p>Select a marker to discover an accessible place.</p>
-</div>
+            <label class="visually-hidden" for="placeSearch">Enter a place name</label>
+            <input type="text" id="placeSearch" placeholder="What place are you looking for?" aria-label="Enter a place name">
+            <button type="button" class="search-button" onclick="searchPlace()">Search <span aria-hidden="true">→</span></button>
+        </div>
+        <p id="searchMessage" class="search-message" aria-live="polite"></p>
 
-<div
-    id="locations-map"
-    style="height: 450px; width: 100%; border-radius: 16px; margin: 25px 0;"
-></div>
-<button
-    type="button"
-    id="currentLocationBtn"
-    class="search-button"
->
-    Find My Current Location
-</button>
+        <div class="map-heading">
+            <div><span class="eyebrow">EXPLORE NEAR YOU</span><h3>See it on the map.</h3><p>Select a marker to discover a place and its accessibility information.</p></div>
+            <span class="map-heading-icon" aria-hidden="true">⌖</span>
+        </div>
+        <div id="locations-map" role="application" aria-label="Map showing accessible locations"></div>
+        <div class="map-actions">
+            <p>Want to explore places around your current location?</p>
+            <button type="button" id="currentLocationBtn" class="location-button"><span aria-hidden="true">◎</span> Find My Current Location</button>
+        </div>
+        <p id="currentLocationMessage" class="location-message" aria-live="polite"></p>
+    </section>
 
-<p id="currentLocationMessage" aria-live="polite"></p>
+    <section class="features-section" id="features">
+        <div class="section-heading">
+            <span class="eyebrow">ACCESSIBILITY INFORMATION</span>
+            <h2>Know what to expect <span>before you arrive.</span></h2>
+            <p>Useful information about facilities that can make everyday journeys easier.</p>
+        </div>
+        <div class="feature-grid">
+            <article class="feature-card"><div class="feature-icon green">♿</div><span class="feature-number">01 / MOBILITY</span><h3>Wheelchair Access</h3><p>Find information about ramps, step-free entrances and wheelchair-friendly spaces.</p><span class="feature-arrow" aria-hidden="true">↗</span></article>
+            <article class="feature-card"><div class="feature-icon blue">↕</div><span class="feature-number">02 / MOVEMENT</span><h3>Elevators</h3><p>Discover whether elevators and accessible vertical access facilities are available.</p><span class="feature-arrow" aria-hidden="true">↗</span></article>
+            <article class="feature-card"><div class="feature-icon orange">◇</div><span class="feature-number">03 / COMFORT</span><h3>Accessible Restrooms</h3><p>Check whether public places provide accessible restroom facilities.</p><span class="feature-arrow" aria-hidden="true">↗</span></article>
+            <article class="feature-card"><div class="feature-icon purple">P</div><span class="feature-number">04 / ARRIVAL</span><h3>Accessible Parking</h3><p>Find information about designated accessible parking spaces.</p><span class="feature-arrow" aria-hidden="true">↗</span></article>
+        </div>
+    </section>
 
-           
-<div class="search-panel">
-    <div class="search-symbol">⌕</div>
+    <section class="about-section" id="about">
+        <div class="about-content">
+            <span class="eyebrow">OUR PURPOSE</span>
+            <h2>Accessibility is not a luxury. <span>It is a necessity.</span></h2>
+            <p>Accessible World aims to make accessibility information easier to discover. Users can contribute updates and report barriers, while administrators review information to help keep records reliable.</p>
+            <a href="#explore" class="about-link">Start exploring <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="about-highlight"><span class="highlight-symbol">✦</span><span class="highlight-kicker">A WORLD FOR EVERYONE</span><h3>A world designed for everyone.</h3><p>Because everyone deserves the freedom to explore, participate and belong.</p><div class="highlight-bottom"><span>ACCESSIBILITY · DIGNITY · INCLUSION</span><span>AW.</span></div></div>
+    </section>
+</main>
 
-    <div class="search-text">
-        <strong>Looking for a place?</strong>
-        <span>Search hospitals, colleges, restaurants and more.</span>
-    </div>
+<footer class="footer">
+    <a href="#home" class="logo footer-logo"><span class="logo-icon">A</span><span>Accessible<span class="logo-highlight">World</span></span></a>
+    <p>Making accessibility easier to discover.</p>
+    <span class="copyright">© 2026 Accessible World. All rights reserved.</span>
+</footer>
 
-    <input
-        type="text"
-        id="placeSearch"
-        placeholder="Enter a place name..."
-        aria-label="Enter a place name"
-    >
-
-    <button class="search-button" onclick="searchPlace()">
-        Search →
-    </button>
-</div>
-
-<p id="searchMessage" class="search-message" aria-live="polite"></p>
-
-        </section>
-
-        <!-- Accessibility Features -->
-        <section class="features-section" id="features">
-            <div class="section-heading">
-                <span class="eyebrow">ACCESSIBILITY INFORMATION</span>
-                <h2>Know what to expect before you arrive.</h2>
-                <p>
-                    Learn about important facilities available at public places.
-                </p>
-            </div>
-
-            <div class="feature-grid">
-
-                <article class="feature-card">
-                    <div class="feature-icon green">♿</div>
-                    <h3>Wheelchair Access</h3>
-                    <p>
-                        Find information about ramps, step-free entrances
-                        and wheelchair-friendly spaces.
-                    </p>
-                </article>
-
-                <article class="feature-card">
-                    <div class="feature-icon blue">↕</div>
-                    <h3>Elevators</h3>
-                    <p>
-                        Discover whether elevators and accessible vertical
-                        access facilities are available.
-                    </p>
-                </article>
-
-                <article class="feature-card">
-                    <div class="feature-icon orange">◇</div>
-                    <h3>Accessible Restrooms</h3>
-                    <p>
-                        Check whether public places provide accessible
-                        restroom facilities.
-                    </p>
-                </article>
-
-                <article class="feature-card">
-                    <div class="feature-icon purple">P</div>
-                    <h3>Accessible Parking</h3>
-                    <p>
-                        Find information about designated accessible
-                        parking spaces.
-                    </p>
-                </article>
-
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section class="about-section" id="about">
-            <div class="about-content">
-                <span class="eyebrow">OUR PURPOSE</span>
-                <h2>Accessibility is not a luxury. It is a necessity.</h2>
-                <p>
-                    Accessible World aims to make accessibility information
-                    easier to discover. Users can contribute updates and
-                    report barriers, while administrators review information
-                    to help keep records reliable.
-                </p>
-                <a href="#home" class="about-link">Back to top ↑</a>
-            </div>
-
-            <div class="about-highlight">
-                <span class="highlight-symbol">✦</span>
-                <h3>A world designed for everyone.</h3>
-                <p>
-                    Because everyone deserves the freedom to explore,
-                    participate and belong.
-                </p>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <a href="#home" class="logo footer-logo">
-            <span class="logo-icon">A</span>
-            <span>Accessible<span class="logo-highlight">World</span></span>
-        </a>
-
-        <p>Making accessibility easier to discover.</p>
-        <span class="copyright">© 2026 Accessible World. All rights reserved.</span>
-    </footer>
-    
-
-   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="js/script.js"></script>
 <script src="js/location.js"></script>
-
 </body>
 </html>

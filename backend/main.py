@@ -536,3 +536,137 @@ def get_locations():
             status_code=503,
             detail="Could not retrieve locations and accessibility features."
         )
+
+
+
+
+# USER PROFILE
+
+class ProfileUpdateRequest(BaseModel):
+    full_name: str = Field(min_length=2, max_length=100)
+
+
+def fetch_user_profile(user_id: int):
+    with get_connection() as connection:
+        with connection.cursor() as cursor:
+            cursor.execute(
+                """
+                SELECT
+                    u.USER_ID,
+                    u.FULL_NAME,
+                    u.EMAIL,
+                    u.USER_ROLE,
+                    u.CREATED_AT,
+                    COUNT(r.REPORT_ID) AS TOTAL_REPORTS,
+                    COUNT(r.REPORT_ID) FILTER (
+                        WHERE r.STATUS = 'PENDING'
+                    ) AS PENDING_REPORTS,
+                    COUNT(r.REPORT_ID) FILTER (
+                        WHERE r.STATUS = 'APPROVED'
+                    ) AS APPROVED_REPORTS,
+                    COUNT(r.REPORT_ID) FILTER (
+                        WHERE r.STATUS = 'REJECTED'
+                    ) AS REJECTED_REPORTS
+                FROM USERS u
+                LEFT JOIN REPORTS r
+                    ON u.USER_ID = r.USER_ID
+                WHERE u.USER_ID = %(user_id)s
+                GROUP BY
+                    u.USER_ID,
+                    u.FULL_NAME,
+                    u.EMAIL,
+                    u.USER_ROLE,
+                    u.CREATED_AT
+                """,
+                {"user_id": user_id}
+            )
+
+            row = cursor.fetchone()
+
+            if not row:
+                raise HTTPException(
+                    status_code=404,
+                    detail="User profile not found."
+                )
+
+            return {
+                "user_id": row[0],
+                "full_name": row[1],
+                "email": row[2],
+                "user_role": row[3],
+                "created_at": row[4].isoformat() if row[4] else None,
+                "total_reports": row[5],
+                "pending_reports": row[6],
+                "approved_reports": row[7],
+                "rejected_reports": row[8]
+            }
+
+
+@app.get("/profile")
+def get_user_profile(
+    current_user: dict = Depends(get_current_user)
+):
+    try:
+        return fetch_user_profile(current_user["user_id"])
+
+    except HTTPException:
+        raise
+
+    except Exception:
+        raise HTTPException(
+            status_code=500,
+            detail="Could not retrieve your profile."
+        )
+
+
+@app.patch("/profile")
+def update_user_profile(
+    profile: ProfileUpdateRequest,
+    current_user: dict = Depends(get_current_user)
+):
+    full_name = profile.full_name.strip()
+
+    if len(full_name) < 2:
+        raise HTTPException(
+            status_code=400,
+            detail="Please enter a valid full name."
+        )
+
+    try:
+        with get_connection() as connection:
+            with connection.cursor() as cursor:
+                cursor.execute(
+                    """
+                    UPDATE USERS
+                    SET FULL_NAME = %(full_name)s
+                    WHERE USER_ID = %(user_id)s
+                    """,
+                    {
+                        "full_name": full_name,
+                        "user_id": current_user["user_id"]
+                    }
+                )
+
+                if cursor.rowcount == 0:
+                    raise HTTPException(
+                        status_code=404,
+                        detail="User not found."
+                    )
+
+            connection.commit()
+
+        return {
+            "message": "Profile updated successfully!",
+            "profile": fetch_user_profile(
+                current_user["user_id"]
+            )
+        }
+
+    except HTTPException:
+        raise
+
+    except Exception:
+        raise HTTPException(
+            status_code=500,
+            detail="Could not update your profile."
+        )
