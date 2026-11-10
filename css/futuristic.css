@@ -3191,3 +3191,111 @@ body:has(.user-dashboard) {
     }
 }
 
+/* =========================================
+   STEP 27 – MOBILE RESPONSIVENESS FIX
+========================================= */
+
+@media (max-width: 600px) {
+
+    /* Compact mobile navigation */
+
+    .navbar {
+        position: relative;
+        flex-direction: column;
+        align-items: center;
+        gap: 13px;
+        padding: 16px 14px;
+    }
+
+    .navbar .logo {
+        font-size: 1.35rem;
+        justify-content: center;
+    }
+
+    .nav-links {
+        width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        gap: 20px;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding: 8px 3px;
+        scrollbar-width: none;
+    }
+
+    .nav-links::-webkit-scrollbar {
+        display: none;
+    }
+
+    .nav-links a {
+        flex-shrink: 0;
+        font-size: 0.88rem;
+    }
+
+    .nav-actions {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .nav-actions a,
+    .nav-actions button {
+        padding: 10px 14px;
+        font-size: 0.88rem;
+    }
+
+    /* Hero section: stack content vertically */
+
+    .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 25px;
+        padding: 65px 20px 45px;
+        overflow: hidden;
+    }
+
+    .hero-content {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(2.6rem, 11vw, 3.5rem);
+        line-height: 1.12;
+        letter-spacing: -1.5px;
+        overflow-wrap: normal;
+    }
+
+    .hero-content p {
+        max-width: 100%;
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+
+    /* Move illustration below the text */
+
+    .hero-visual {
+        position: relative;
+        width: 100%;
+        min-width: 0;
+        min-height: 320px;
+        margin: 10px auto 0;
+        overflow: hidden;
+    }
+
+    .access-card {
+        max-width: 90%;
+    }
+
+    /* Prevent horizontal scrolling */
+
+    body {
+        overflow-x: hidden;
+    }
+}
+
